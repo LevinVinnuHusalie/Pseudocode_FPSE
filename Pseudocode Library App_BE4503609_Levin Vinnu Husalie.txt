@@ -1,0 +1,23 @@
+PROGRAM LIBRARY APP
+
+READ AND WRITE "nama peminjam" WITH String
+READ AND WRITE "judul buku" WITH String
+READ AND WRITE "tanggal peminjaman" WITH date
+READ AND WRITE "tanggal pengembalian" WITH date
+READ AND WRITE "durasi pinjam" WITH number
+STORE "ketersediaan" WITH FALSE
+
+
+STORE "nama peminjam" WITH "Levin"
+
+WHILE "ketersediaan"
+	DO
+	STORE "judul buku" WITH "Laskar Pelangi"
+	SEARCH "judul buku" IN DATABASE
+
+	IF "judul buku" FOUND IN DATABASE
+		STORE "ketersediaan" WITH TRUE
+		STORE "tanggal peminjaman" WITH "16-02-2023"
+		STORE "tanggal pengembalian" WITH "19-02-2023"
+		STORE "durasi pinjam" WITH "tanggal pengembalian" MINUS "tanggal peminjaman"
+		PRINT "nama peminjam" , "durasi pinjam"
